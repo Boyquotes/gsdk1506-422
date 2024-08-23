@@ -57,13 +57,12 @@ func start_game() -> void:
 	#check if this wallet is initialized as a player in SOAR program
 	#if not, initialize and then start
 	
-	#await setup_game()
+	await setup_game()
 	#await submit_score()
 	
-	#AFIX
-	var player_data:Dictionary = await soar_program.fetch_player_data(SolanaService.wallet.get_pubkey())
-	if player_data.size()==0:
-		await initialize_player()
+	#var player_data:Dictionary = await soar_program.fetch_player_data(SolanaService.wallet.get_pubkey())
+	#if player_data.size()==0:
+		#await initialize_player()
 		
 	play()
 		
@@ -106,7 +105,7 @@ func update_leaderboard() -> void:
 	
 
 func initialize_player() -> void:
-	var username:String = "Pokemon Go"
+	var username:String = "Kaleve"
 	#devnet rubian nft example
 	var user_nft:Pubkey = Pubkey.new_from_string("9aNFiE6mdcQSGaytpoqpWvJMeA2h6vDa4sJttsyyKFPA")
 	

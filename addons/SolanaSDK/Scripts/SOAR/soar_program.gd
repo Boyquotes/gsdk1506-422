@@ -67,7 +67,6 @@ func init_game(game_attributes:SoarUtils.GameAttributes) -> String:
 	var instructions:Array[Instruction]
 	var init_game_ix:Instruction = soar_program.build_instruction("initializeGame",[
 		SolanaService.wallet.get_kp(), #creator
-		SolanaService.wallet.get_kp(), #creator
 		game_account, #game
 		Pubkey.new_from_string("11111111111111111111111111111111") #system program
 	],{
