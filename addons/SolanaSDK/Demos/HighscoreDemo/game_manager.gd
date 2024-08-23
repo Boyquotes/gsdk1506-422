@@ -57,11 +57,13 @@ func start_game() -> void:
 	#check if this wallet is initialized as a player in SOAR program
 	#if not, initialize and then start
 	
-	await setup_game()
+	#await setup_game()
+	#await submit_score()
+	
 	#AFIX
-	#var player_data:Dictionary = await soar_program.fetch_player_data(SolanaService.wallet.get_pubkey())
-	#if player_data.size()==0:
-		#await initialize_player()
+	var player_data:Dictionary = await soar_program.fetch_player_data(SolanaService.wallet.get_pubkey())
+	if player_data.size()==0:
+		await initialize_player()
 		
 	play()
 		
@@ -69,7 +71,7 @@ func play() -> void:
 	start_screen.visible=false
 	play_screen.visible=true
 	
-	player_score = randi_range(1,420)
+	player_score = randi_range(1,99)
 	score_label.text = str(player_score)
 	
 func setup_game() -> void:

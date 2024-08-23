@@ -59,7 +59,7 @@ score_label = NodePath("PlayScreen/score")
 submit_score_button = NodePath("PlayScreen/SubmitButton")
 leaderboard_button = NodePath("StartingScreen/LeaderboardButton")
 leaderboard_system = NodePath("LeaderboardScreen")
-game_authority_path = "res://addons/SolanaSDK/Demos/HighscoreDemo/DgjZTqLaxmhtg1eypxpLfDfQw3whi5Wg45pD4oSJb8Az.json"
+game_authority_path = "res://idBB.json"
 
 [node name="Background" type="Panel" parent="."]
 layout_mode = 0

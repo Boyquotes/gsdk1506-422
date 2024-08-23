@@ -67,6 +67,7 @@ func init_game(game_attributes:SoarUtils.GameAttributes) -> String:
 	var instructions:Array[Instruction]
 	var init_game_ix:Instruction = soar_program.build_instruction("initializeGame",[
 		SolanaService.wallet.get_kp(), #creator
+		SolanaService.wallet.get_kp(), #creator
 		game_account, #game
 		Pubkey.new_from_string("11111111111111111111111111111111") #system program
 	],{
@@ -202,7 +203,9 @@ func submit_score_to_leaderboard(game_account:Pubkey,leaderboard_account:Pubkey,
 	var leaderboard_data:Dictionary = await fetch_leaderboard_data(leaderboard_account)
 	var leaderboard_top_entries_pda:Pubkey = SoarPDA.get_leaderboard_scores_pda(leaderboard_account,get_pid())
 	var player_score = AnchorProgram.u64(score * pow(10,leaderboard_data["decimals"]))
-	
+	print("SolanaService.wallet.get_kp()")
+	print(SolanaService.wallet.get_kp())
+	print(game_auth.get_public_string())
 	var submit_score_ix:Instruction = soar_program.build_instruction("submitScore",[
 		SolanaService.wallet.get_kp(), #payer
 		game_auth, #authority
