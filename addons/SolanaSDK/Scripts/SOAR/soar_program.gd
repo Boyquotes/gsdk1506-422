@@ -151,7 +151,7 @@ func initialize_player(username:String, user_nft:Pubkey) -> String:
 		"nftMeta":user_nft
 	})
 	
-	print("Initializing Player account with ID: %s"%player_account.get_value())
+	#print("Initializing Player account with ID: %s"%player_account.get_value())
 	instructions.append(init_player_ix)
 	var tx_id:String = await SolanaService.transaction_processor.sign_transaction(SolanaService.wallet.get_kp(),instructions,"finalized")
 	return tx_id

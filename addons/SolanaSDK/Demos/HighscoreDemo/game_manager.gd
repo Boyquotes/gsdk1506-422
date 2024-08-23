@@ -27,9 +27,13 @@ var game_auth:Keypair
 var player_score:int
 
 #devnet Game account, created once using setup_game function
-var game_address:String = "5XSs9TZRasg3k6dJLo1fKko3gtc749KNgUoj9mCqRF26"
+#var game_address:String = "5XSs9TZRasg3k6dJLo1fKko3gtc749KNgUoj9mCqRF26"
+#ME
+var game_address:String = "Erk1ZAwYcA3T7wLukXD4kNKA72xC7JPPPrftHeBPao6C"
 #devned leaderboard No.1 created from the game. Players can submit their scores to it
-var leaderboard_address:String = "9ztUqAyKPvPUmTAiopEZcc4QGghMvuM9oURixDQCgGcK"
+#var leaderboard_address:String = "9ztUqAyKPvPUmTAiopEZcc4QGghMvuM9oURixDQCgGcK"
+#ME
+var leaderboard_address:String = "EA1GJx7m6oFMn8MunYHurGGMPjKjUa6i6rsB8cr3gX9h"
 #collection used as nft_meta for games and leaderboards. this is devnet Rubians
 var nft_collection:String = "EE1XTVRxVX5UtTLKRg7Y5bFQEKm2wm2nao9SGF27fypH"
 
@@ -53,9 +57,11 @@ func start_game() -> void:
 	#check if this wallet is initialized as a player in SOAR program
 	#if not, initialize and then start
 	
-	var player_data:Dictionary = await soar_program.fetch_player_data(SolanaService.wallet.get_pubkey())
-	if player_data.size()==0:
-		await initialize_player()
+	await setup_game()
+	#AFIX
+	#var player_data:Dictionary = await soar_program.fetch_player_data(SolanaService.wallet.get_pubkey())
+	#if player_data.size()==0:
+		#await initialize_player()
 		
 	play()
 		
