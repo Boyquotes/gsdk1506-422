@@ -17,6 +17,8 @@ script = ExtResource("2_v3adq")
 [node name="WalletService" type="Node" parent="."]
 script = ExtResource("5_f327g")
 use_generated = true
+custom_wallet_path = "idBB.json"
+autologin = true
 
 [node name="WalletAdapter" type="WalletAdapter" parent="WalletService"]
 

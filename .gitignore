@@ -1,3 +1,4 @@
+id*.json
 .tmp
 .DS_Store
 project.godot
